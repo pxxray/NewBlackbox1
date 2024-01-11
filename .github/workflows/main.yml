@@ -21,7 +21,7 @@ jobs:
         
     - name: Clone project
       run: |
-        unzip NewBlackbox.zip
+        unzip -o -d NewBlackbox.zip
         rm -rf NewBlackbox.zip
         
     - name: Update files
