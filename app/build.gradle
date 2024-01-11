@@ -1,0 +1,125 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk rootProject.ext.compileSdk
+
+    defaultConfig {
+        applicationId "top.niunaijun.blackbox"
+        minSdk rootProject.ext.minSdk
+        targetSdk rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        manifestPlaceholders = [APP_ICON: "@mipmap/ic_launcher",
+                                APP_ROUND_ICON: "@mipmap/ic_launcher_round"]
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("release.jks")
+            storePassword "BlackBox"
+            keyAlias "BlackBox"
+            keyPassword "BlackBox"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            debuggable false
+
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    lint {
+        abortOnError false
+        checkOnly 'NewApi', 'InlinedApi'
+        checkReleaseBuilds false
+        disable 'UnusedResources', 'RestrictedApi'
+        textOutput file('stdout')
+        textReport false
+        warningsAsErrors false
+    }
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+dependencies {
+    implementation project(':BCore')
+
+    // android
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.6.0-rc01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.activity:activity-ktx:1.5.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.2'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    // coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    //viewModel liveData  lifecycle
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+
+    // third
+    implementation 'com.tbuonomo:dotsindicator:4.3'
+    // viewPager2 指示点
+    implementation 'com.afollestad.material-dialogs:core:3.3.0'
+    implementation 'com.afollestad.material-dialogs:input:3.3.0'
+    // dialog
+    implementation 'com.github.nukc.stateview:kotlin:2.2.0'
+    // 状态控制控件
+    implementation 'com.roger.catloadinglibrary:catloadinglibrary:1.0.9'
+    // 加载dialog
+    implementation 'com.github.Ferfalk:SimpleSearchView:0.2.0'
+    // searchView
+    implementation 'com.github.Othershe:CornerLabelView:1.0.0'
+    // 图标角标
+
+    // osmdroid
+    implementation 'org.osmdroid:osmdroid-android:6.1.14'
+    // adapter
+    implementation 'com.gitee.cbfg5210:RVAdapter:0.3.7'
+
+    // 悬浮窗
+    implementation 'com.imuxuan:floatingview:1.6'
+    implementation "androidx.core:core-ktx:$ktx_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
