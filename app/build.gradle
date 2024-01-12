@@ -108,7 +108,7 @@ dependencies {
     // 状态控制控件
     implementation 'com.roger.catloadinglibrary:catloadinglibrary:1.0.9'
     // 加载dialog
-    implementation 'com.github.Ferfalk:SimpleSearchView:0.2.0'
+    implementation 'com.github.Ferfalk:SimpleSearchView:0.2.1'
     // searchView
     implementation 'com.github.Othershe:CornerLabelView:1.0.0'
     // 图标角标
