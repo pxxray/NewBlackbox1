@@ -82,13 +82,13 @@ dependencies {
 
     // android
     implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.appcompat:appcompat:1.6.0-rc01'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'androidx.activity:activity-ktx:1.5.1'
     implementation 'androidx.fragment:fragment-ktx:1.5.2'
-    implementation 'androidx.preference:preference-ktx:1.2.0'
+    implementation 'androidx.preference:preference-ktx:1.2.1'
 
     // coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
@@ -108,13 +108,13 @@ dependencies {
     // 状态控制控件
     implementation 'com.roger.catloadinglibrary:catloadinglibrary:1.0.9'
     // 加载dialog
-    implementation 'com.github.Ferfalk:SimpleSearchView:0.2.0'
+    implementation 'com.github.Ferfalk:SimpleSearchView:0.2.1'
     // searchView
     implementation 'com.github.Othershe:CornerLabelView:1.0.0'
     // 图标角标
 
     // osmdroid
-    implementation 'org.osmdroid:osmdroid-android:6.1.14'
+    implementation 'org.osmdroid:osmdroid-android:6.1.18'
     // adapter
     implementation 'com.gitee.cbfg5210:RVAdapter:0.3.7'
 
