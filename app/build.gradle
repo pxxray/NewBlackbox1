@@ -114,7 +114,7 @@ dependencies {
     // 图标角标
 
     // osmdroid
-    implementation 'org.osmdroid:osmdroid-android:6.1.14'
+    implementation 'org.osmdroid:osmdroid-android:6.1.18'
     // adapter
     implementation 'com.gitee.cbfg5210:RVAdapter:0.3.7'
 
